@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">PruebaProgramadorYapp</string>
+    <string name="app_name">Prueba Programador Yapp</string>
+    <string name="title_activity_mapa">MapaActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Texto Formulario -->
+    <string name="textoNombre">Nombre:</string>
+    <string name="textoApellidos">Apellidos:</string>
+    <string name="textoFechaNacimiento">Fecha Nacimiento:</string>
+    <string name="textoAnimalFavorito">¿Cuál es tu animal favorito?</string>
+    <string name="textoUrl">Ingresa una Url de tu animal favorito:</string>
+
+    <!-- Texto Botones -->
+    <string name="textoBtnEnviar">Enviar</string>
+
 </resources>

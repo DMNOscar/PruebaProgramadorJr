@@ -8,10 +8,73 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="@dimen/texto_extra_grande"
-        android:text="Fragmento A"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/texto_pequeño"
+        android:text="@string/textoNombre"
         android:layout_margin="@dimen/margin"
         />
 
+    <EditText
+        android:id="@+id/edtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/texto_pequeño"
+        android:text="@string/textoApellidos"
+        android:layout_margin="@dimen/margin"
+        />
+    <EditText
+        android:id="@+id/edtApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/texto_pequeño"
+        android:text="@string/textoFechaNacimiento"
+        android:layout_margin="@dimen/margin"
+        />
+    <EditText
+        android:id="@+id/edtFechaNacimiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/texto_pequeño"
+        android:text="@string/textoAnimalFavorito"
+        android:layout_margin="@dimen/margin"
+        />
+
+    <EditText
+        android:id="@+id/edtAnimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/texto_pequeño"
+        android:text="@string/textoUrl"
+        android:layout_margin="@dimen/margin"
+        />
+
+    <EditText
+        android:id="@+id/edtUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textoBtnEnviar"
+        />
 </LinearLayout>
