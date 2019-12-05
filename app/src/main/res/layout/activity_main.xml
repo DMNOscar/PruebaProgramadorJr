@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     >
 
-
     <fragment
         android:id="@+id/fragmentA"
         android:layout_width="match_parent"
