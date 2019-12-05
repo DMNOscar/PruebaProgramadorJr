@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimenciones para CardView -->
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="cardCornerRadius">10dp</dimen>
+
+
+    <!-- Dimenciones Texto General (Medidas para el diferente tipo de texto encontrado en la app) -->
+    <dimen name="texto_extra_grande">30sp</dimen>
+    <dimen name="texto_grande">22sp</dimen>
+    <dimen name="texto_mediano">18sp</dimen>
+    <dimen name="texto_pequeño">14sp</dimen>
+    <dimen name="texto_muy_pequeño">12sp</dimen>
+
+
+    <!-- Dimenciones Contenedores Genericas (<pueden ser usadas a lo largo de la App)-->
+    <dimen name="margin">8dp</dimen>
+    <dimen name="padding">8dp</dimen>
+    <dimen name="padding_boton_redondo">18dp</dimen>
+
+</resources>
