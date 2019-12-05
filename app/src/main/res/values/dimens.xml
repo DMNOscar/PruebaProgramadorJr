@@ -18,5 +18,8 @@
     <dimen name="margin">8dp</dimen>
     <dimen name="padding">8dp</dimen>
     <dimen name="padding_boton_redondo">18dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="tamano_fab">56dp</dimen>
+    <dimen name="elevacion_fab">6dp</dimen>
 
 </resources>
