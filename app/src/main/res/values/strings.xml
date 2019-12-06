@@ -15,6 +15,10 @@
     <string name="textoAnimalFavorito">¿Cuál es tu animal favorito?</string>
     <string name="textoUrl">Ingresa una Url de tu animal favorito:</string>
 
+    <string name="textoCardAnimalFavirito">Animal favorito:</string>
+    <string name="textoCardEdad">Edad:</string>
+
+
     <!-- Texto Botones -->
     <string name="textoBtnEnviar">Enviar</string>
 

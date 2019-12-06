@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin"
+    android:padding="@dimen/padding"
+    app:cardElevation="@dimen/cardElevacion"
+    app:cardCornerRadius="@dimen/cardCornerRadio"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/textoNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:text="@string/textoNombre"
+            android:layout_margin="@dimen/margin"
+            android:textStyle="bold"
+            android:textColor="@color/colorTexto"
+            />
+
+        <TextView
+            android:id="@+id/txtvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:layout_toEndOf="@+id/textoAnimalFavorito"
+            android:text="@string/textoNombre"
+            android:layout_margin="@dimen/margin"
+            />
+
+
+        <TextView
+            android:id="@+id/textoApellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:text="@string/textoApellidos"
+            android:layout_margin="@dimen/margin"
+            android:layout_below="@+id/textoNombre"
+            android:textStyle="bold"
+            android:textColor="@color/colorTexto"
+            />
+
+        <TextView
+            android:id="@+id/txtvApellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:layout_toEndOf="@+id/textoAnimalFavorito"
+            android:layout_below="@+id/txtvNombre"
+            android:text="@string/textoNombre"
+            android:layout_margin="@dimen/margin"
+            />
+
+        <TextView
+            android:id="@+id/textoEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:text="@string/textoCardEdad"
+            android:layout_margin="@dimen/margin"
+            android:layout_below="@+id/textoApellidos"
+            android:textStyle="bold"
+            android:textColor="@color/colorTexto"
+            />
+        <TextView
+            android:id="@+id/txtvEdad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:layout_toEndOf="@+id/textoAnimalFavorito"
+            android:layout_below="@+id/txtvApellidos"
+            android:text="@string/textoNombre"
+            android:layout_margin="@dimen/margin"
+            />
+
+        <TextView
+            android:id="@+id/textoAnimalFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:text="@string/textoCardAnimalFavirito"
+            android:layout_margin="@dimen/margin"
+            android:layout_below="@+id/textoEdad"
+            android:textStyle="bold"
+            android:textColor="@color/colorTexto"
+            />
+
+        <TextView
+            android:id="@+id/txtvAnimalFavorito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_pequeño"
+            android:layout_toEndOf="@+id/textoAnimalFavorito"
+            android:layout_below="@+id/textoEdad"
+            android:text="@string/textoNombre"
+            android:layout_margin="@dimen/margin"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

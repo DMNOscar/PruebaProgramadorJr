@@ -2,8 +2,8 @@
 <resources>
     <!-- Dimenciones para CardView -->
     <dimen name="card_margin">16dp</dimen>
-    <dimen name="card_elevation">2dp</dimen>
-    <dimen name="cardCornerRadius">10dp</dimen>
+    <dimen name="cardElevacion">2dp</dimen>
+    <dimen name="cardCornerRadio">10dp</dimen>
 
 
     <!-- Dimenciones Texto General (Medidas para el diferente tipo de texto encontrado en la app) -->
