@@ -106,6 +106,7 @@
             />
 
         <ImageView
+            android:id="@+id/imgAnimalFavorito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
