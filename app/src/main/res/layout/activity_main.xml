@@ -20,6 +20,7 @@
         class="com.example.pruebaprogramadoryapp.Fragment.FragmentB"
         />
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="@dimen/tamano_fab"
         android:layout_height="@dimen/tamano_fab"
@@ -29,7 +30,5 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/fab_margin"
         />
-
-
 
 </RelativeLayout>

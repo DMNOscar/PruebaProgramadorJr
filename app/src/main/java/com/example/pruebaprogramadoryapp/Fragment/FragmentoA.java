@@ -12,14 +12,22 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import com.example.pruebaprogramadoryapp.Interface.InterfaceRecycler;
 import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
+
+import java.util.Calendar;
 
 public class FragmentoA extends Fragment implements View.OnClickListener {
 
     private EditText edtNombre, edtFechaNacimiento,edtApellido, edtAnimalFavorito, edtUrl;
     private Usuario usuario;
     private AppCompatButton btnEnviar;
+    private static InterfaceRecycler varInterfaceRecycler;
+    Calendar calendario = Calendar.getInstance();
+    private int horaActual, horasRestantes, HORAS_DIA=24;
+
+
 
     @Nullable
     @Override
@@ -34,37 +42,41 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
 
         edtNombre = view.findViewById(R.id.edtNombre);
         edtApellido = view.findViewById(R.id.edtApellido);
-        edtFechaNacimiento = view.findViewById(R.id.edtAnimal);
+        edtFechaNacimiento = view.findViewById(R.id.edtFechaNacimiento);
+        edtAnimalFavorito = view.findViewById(R.id.edtAnimal);
         edtUrl = view.findViewById(R.id.edtUrl);
+
         btnEnviar = view.findViewById(R.id.btnEnviar);
+
+        btnEnviar.setOnClickListener(this);
+
+        horaActual =calendario.get(Calendar.HOUR_OF_DAY);
+
+        horasRestantes =  HORAS_DIA - horaActual;
 
     }
 
     @Override
     public void onClick(View view) {
-        Fragment fragment = null;
 
         switch (view.getId()){
 
             case R.id.btnEnviar:
 
-                Toast.makeText(getContext(), "Creando Usuario", Toast.LENGTH_SHORT).show();
-                usuario.setNombre(edtNombre.getText().toString());
-                usuario.setApellidos(edtApellido.getText().toString());
-                usuario.setFechaNacimiento(edtFechaNacimiento.getText().toString());
-                usuario.setAnimalFavorito(edtAnimalFavorito.getText().toString());
-                usuario.setUrlImagen(edtUrl.getText().toString());
-
-
-                if(usuario != null){
-                    Toast.makeText(getContext(), "Enviando Usuario", Toast.LENGTH_SHORT).show();
-                    fragment = FragmentB.getInstance(usuario);
-                    getActivity().getSupportFragmentManager().beginTransaction().attach(fragment).addToBackStack(null).commit();
-
-                }
+                usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),edtFechaNacimiento.getText().toString(),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
+                
+                    varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
 
                 break;
 
         }
     }
+
+    public static void ActualizarRecyclerView(InterfaceRecycler interfaceRecycler){
+
+        varInterfaceRecycler = interfaceRecycler;
+
+    }
+
+
 }

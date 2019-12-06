@@ -21,8 +21,8 @@ public class AdapterListaUsuario extends RecyclerView.Adapter<AdapterListaUsuari
     private List<Usuario> listaUsuario;
     private Context context;
 
-    public AdapterListaUsuario(List<Usuario> lista) {
-
+    public AdapterListaUsuario(List<Usuario> lista, Context context) {
+        this.context = context;
         this.listaUsuario = lista;
     }
 
