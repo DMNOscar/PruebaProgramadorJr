@@ -24,7 +24,7 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
     private Usuario usuario;
     private AppCompatButton btnEnviar;
     private static InterfaceRecycler varInterfaceRecycler;
-    Calendar calendario = Calendar.getInstance();
+    private Calendar calendario = Calendar.getInstance();
     private int horaActual, horasRestantes, HORAS_DIA=24;
 
 
@@ -45,7 +45,6 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         edtFechaNacimiento = view.findViewById(R.id.edtFechaNacimiento);
         edtAnimalFavorito = view.findViewById(R.id.edtAnimal);
         edtUrl = view.findViewById(R.id.edtUrl);
-
         btnEnviar = view.findViewById(R.id.btnEnviar);
 
         btnEnviar.setOnClickListener(this);
@@ -63,9 +62,13 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
 
             case R.id.btnEnviar:
 
-                usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),edtFechaNacimiento.getText().toString(),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
-                
-                    varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
+              //  usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),edtFechaNacimiento.getText().toString(),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
+
+
+                usuario = new Usuario("Oscar","Martinez","26/06/1993","gato","https://ichef.bbci.co.uk/news/660/cpsprodpb/8536/production/_103520143_gettyimages-908714708.jpg");
+
+
+                varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
 
                 break;
 

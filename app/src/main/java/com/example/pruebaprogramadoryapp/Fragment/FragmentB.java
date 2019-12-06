@@ -15,6 +15,8 @@ import com.example.pruebaprogramadoryapp.Adapter.AdapterListaUsuario;
 import com.example.pruebaprogramadoryapp.Interface.InterfaceRecycler;
 import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
+import com.example.pruebaprogramadoryapp.Recursos.AlertDialogImagen;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,38 +24,17 @@ public class FragmentB extends Fragment implements InterfaceRecycler {
 
     private RecyclerView rcvListaUsuario;
     private AdapterListaUsuario adapterListaUsuario;
-    private Usuario usuario;
-    List<Usuario> lista = new ArrayList<>();
-    FragmentoA fragmentoA;
 
-    public static FragmentB getInstance(Usuario usuario){
-        FragmentB fragmentB = new FragmentB();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("USUARIO",usuario);
-        fragmentB.setArguments(bundle);
-        return  fragmentB;
-    }
 
+    private  List<Usuario> lista = new ArrayList<>();
+    private FragmentoA fragmentoA;
+
+    private AlertDialogImagen alertDialog = new AlertDialogImagen();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_b,container,false);
-    }
-
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        if (getArguments() != null) {
-
-            usuario = getArguments().getParcelable("USUARIO");
-
-
-
-        }
-
     }
 
     @Override
@@ -81,12 +62,16 @@ public class FragmentB extends Fragment implements InterfaceRecycler {
             adapterListaUsuario = new AdapterListaUsuario(lista,getContext());
             rcvListaUsuario.setAdapter(adapterListaUsuario);
 
+            alertDialog.crearDialogError(getContext(),usuario.getUrlImagen());
+
     }
 
     @Override
     public void ActualizarRecycler(Usuario usuario, int item) {
 
         llenadoAdapterLista(usuario, item);
+
+
 
     }
 }
