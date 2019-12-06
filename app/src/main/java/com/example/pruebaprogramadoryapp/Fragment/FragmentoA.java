@@ -1,5 +1,7 @@
 package com.example.pruebaprogramadoryapp.Fragment;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +17,11 @@ import androidx.fragment.app.Fragment;
 import com.example.pruebaprogramadoryapp.Interface.InterfaceRecycler;
 import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
+import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Calendar;
+
+import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
 
 public class FragmentoA extends Fragment implements View.OnClickListener {
 
@@ -27,6 +32,7 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
     private Calendar calendario = Calendar.getInstance();
     private int horaActual, horasRestantes, HORAS_DIA=24;
 
+    private int MY_LOCATION_REQUEST_CODE = OK;
 
 
     @Nullable
@@ -53,6 +59,21 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
 
         horasRestantes =  HORAS_DIA - horaActual;
 
+
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == MY_LOCATION_REQUEST_CODE) {
+            if (permissions.length == 1 &&
+                    permissions[0] == Manifest.permission.ACCESS_FINE_LOCATION &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+            } else {
+                // Permission was denied. Display an error message.
+            }
+        }
     }
 
     @Override

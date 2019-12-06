@@ -35,6 +35,7 @@
 </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMapa"
         android:layout_width="@dimen/tamano_fab"
         android:layout_height="@dimen/tamano_fab"
         android:elevation="@dimen/elevacion_fab"
