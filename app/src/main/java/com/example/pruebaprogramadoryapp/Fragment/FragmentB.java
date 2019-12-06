@@ -53,6 +53,7 @@ public class FragmentB extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        llenadoAdapterLista(10);
 
         if (adapterListaUsuario != null) {
             rcvListaUsuario.setAdapter(adapterListaUsuario);
