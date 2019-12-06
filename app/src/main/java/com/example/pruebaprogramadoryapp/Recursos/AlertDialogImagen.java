@@ -20,7 +20,7 @@ public class AlertDialogImagen {
     private ImageView imgFotoUsuario;
     private Handler handler;
 
-    public AlertDialog crearDialogError(Context context, String urlImagen) {
+    public AlertDialog crearDialogError(Context context, String urlImagen, String animalFavorito) {
 
 
         //Elemento de tipo AlertDialog
@@ -33,6 +33,7 @@ public class AlertDialogImagen {
         txtTitulo = view.findViewById(R.id.txtvTitulo);
         imgFotoUsuario = view.findViewById(R.id.imgAlertDialog);
 
+        txtTitulo.setText(animalFavorito);
         Glide.with(context).load(urlImagen).into(imgFotoUsuario);
 
         //Creamos un Builder

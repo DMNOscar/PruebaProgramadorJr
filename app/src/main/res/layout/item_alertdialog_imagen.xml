@@ -11,7 +11,11 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_extra_grande"
         android:text="Titulo"
+        android:textColor="@color/colorBlanco"
+        android:textStyle="bold"
         android:gravity="center"
+        android:padding="@dimen/padding"
+        android:background="@color/colorPrimary"
         />
 
     <ImageView
