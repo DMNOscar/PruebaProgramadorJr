@@ -32,10 +32,6 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localizacion);
 
-        Bundle bundle = getIntent().getExtras();
-        latitud = bundle.getDouble("LATITUD",0);
-        longitud = bundle.getDouble("LONGITUD",0);
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
@@ -55,8 +51,7 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
         {
             //CHECAMOS QUE LOS PERMISOS
             if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
-                    ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
-            {
+                    ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 //ACTIVAMOS EL SERVICIO DE UBICACION DEL SISTEMA
                 locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
