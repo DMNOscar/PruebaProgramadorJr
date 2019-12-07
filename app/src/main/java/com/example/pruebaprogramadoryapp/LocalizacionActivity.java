@@ -1,6 +1,10 @@
 package com.example.pruebaprogramadoryapp;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Context;
@@ -28,10 +32,24 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
 
     private LocationManager locationManager;
     private Location location;
+
+
+    private DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localizacion);
+
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+       // toolbar.setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -44,6 +62,15 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public void obtenerUbicacion(Context context) {
