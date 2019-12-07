@@ -3,7 +3,7 @@ package com.example.pruebaprogramadoryapp.Modelo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Usuario implements Parcelable {
+public class Usuario  {
 
     /*
             Objeto Usuario
@@ -65,19 +65,5 @@ public class Usuario implements Parcelable {
         this.urlImagen = urlImagen;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-        parcel.writeString(nombre);
-        parcel.writeString(apellidos);
-        parcel.writeString(fechaNacimiento);
-        parcel.writeString(animalFavorito);
-        parcel.writeString(urlImagen);
-
-    }
 }
