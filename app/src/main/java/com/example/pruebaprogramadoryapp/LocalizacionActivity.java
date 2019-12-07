@@ -1,11 +1,14 @@
 package com.example.pruebaprogramadoryapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -14,6 +17,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,10 +26,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.jar.Manifest;
 
-public class LocalizacionActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener {
+public class LocalizacionActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, NavigationView.OnNavigationItemSelectedListener {
 
     private GoogleMap googleMap;
     private double latitud, longitud;
@@ -56,6 +61,10 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
 
         obtenerUbicacion(this);
 
+
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -72,6 +81,27 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
             super.onBackPressed();
         }
     }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch (menuItem.getItemId()) {
+            case R.id.nav_camera:
+
+                Toast.makeText(this, "Que onda perro ya te salio  hijo 7u7", Toast.LENGTH_SHORT).show();
+
+                break;
+        }
+
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
 
     public void obtenerUbicacion(Context context) {
         try {
