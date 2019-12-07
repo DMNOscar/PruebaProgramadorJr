@@ -10,6 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -45,10 +46,8 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
 
     }
 
-    public void obtenerUbicacion(Context context)
-    {
-        try
-        {
+    public void obtenerUbicacion(Context context) {
+        try {
             //CHECAMOS QUE LOS PERMISOS
             if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                     ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -67,6 +66,8 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
                         location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                         latitud = location.getLatitude();
                         longitud = location.getLongitude();
+
+                        Toast.makeText(context, "Localizado", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -98,10 +99,13 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
     @Override
     public void onProviderEnabled(String s) {
 
+        Toast.makeText(this, "onProviderEnabled", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onProviderDisabled(String s) {
+        Toast.makeText(this, "onProviderDisabled", Toast.LENGTH_SHORT).show();
 
     }
 }

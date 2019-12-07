@@ -17,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import com.example.pruebaprogramadoryapp.Interface.InterfaceRecycler;
 import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
-import com.google.android.gms.maps.GoogleMap;
 
 import java.util.Calendar;
 
@@ -25,12 +24,12 @@ import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
 
 public class FragmentoA extends Fragment implements View.OnClickListener {
 
-    private EditText edtNombre, edtFechaNacimiento,edtApellido, edtAnimalFavorito, edtUrl;
+    private EditText edtNombre, edtAnioNacimiento,edtApellido, edtAnimalFavorito, edtUrl, edtMesNacimiento,edtDiaNacimiento;
     private Usuario usuario;
     private AppCompatButton btnEnviar;
     private static InterfaceRecycler varInterfaceRecycler;
     private Calendar calendario = Calendar.getInstance();
-    private int horaActual, horasRestantes, HORAS_DIA=24;
+    private int horaActual, horasRestantes, HORAS_DIA=24, anioActual,edadUsuario;
 
     private int MY_LOCATION_REQUEST_CODE = OK;
 
@@ -48,17 +47,23 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
 
         edtNombre = view.findViewById(R.id.edtNombre);
         edtApellido = view.findViewById(R.id.edtApellido);
-        edtFechaNacimiento = view.findViewById(R.id.edtFechaNacimiento);
+        edtAnioNacimiento = view.findViewById(R.id.edtAnioNacimiento);
+        edtMesNacimiento = view.findViewById(R.id.edtMesNacimiento);
+        edtDiaNacimiento = view.findViewById(R.id.edtDiaNacimiento);
         edtAnimalFavorito = view.findViewById(R.id.edtAnimal);
         edtUrl = view.findViewById(R.id.edtUrl);
         btnEnviar = view.findViewById(R.id.btnEnviar);
 
-        btnEnviar.setOnClickListener(this);
+
+
+
 
         horaActual =calendario.get(Calendar.HOUR_OF_DAY);
+        anioActual=calendario.get(Calendar.YEAR);
 
         horasRestantes =  HORAS_DIA - horaActual;
 
+        btnEnviar.setOnClickListener(this);
 
     }
 
@@ -83,13 +88,31 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
 
             case R.id.btnEnviar:
 
-              //  usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),edtFechaNacimiento.getText().toString(),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
+               if(edtNombre.getText().length() > 0 && edtApellido.getText().length() > 0 &&
+                   edtDiaNacimiento.getText().length() > 0 && edtMesNacimiento.getText().length() > 0
+                   && edtAnioNacimiento.getText().length() > 0 && edtAnimalFavorito.getText().length() > 0 && edtUrl.getText().length() > 0){
+
+                   // Calculamos la edad de usuario
+                   if(edtAnioNacimiento.getText().length() == 4){
+                       edadUsuario = anioActual - Integer.parseInt(edtAnioNacimiento.getText().toString());
+
+                       usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),String.valueOf(edadUsuario),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
 
 
-                usuario = new Usuario("Oscar","Martinez","26/06/1993","gato","https://ichef.bbci.co.uk/news/660/cpsprodpb/8536/production/_103520143_gettyimages-908714708.jpg");
+                       varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
+                   }else {
+                       Toast.makeText(getContext(), "verifica que el año de nacimiento tenga el siguiete formato: aaaa", Toast.LENGTH_SHORT).show();
+
+                   }
 
 
-                varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
+
+                }else {
+
+                   Toast.makeText(getContext(), "Aun hay campos vacios", Toast.LENGTH_SHORT).show();
+
+               }
+
 
                 break;
 

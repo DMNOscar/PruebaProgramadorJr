@@ -8,13 +8,14 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textoNombre"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_pequeño"
         android:text="@string/textoNombre"
@@ -25,58 +26,97 @@
         android:id="@+id/edtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textoNombre"
         />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textoApellido"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_pequeño"
         android:text="@string/textoApellidos"
         android:layout_margin="@dimen/margin"
+        android:layout_below="@+id/edtNombre"
         />
     <EditText
         android:id="@+id/edtApellido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/edtNombre"
+        android:layout_toEndOf="@+id/textoApellido"
         />
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textoFechaNacimiento"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_pequeño"
         android:text="@string/textoFechaNacimiento"
         android:layout_margin="@dimen/margin"
+        android:layout_below="@+id/edtApellido"
         />
+
+
+        <EditText
+            android:id="@+id/edtDiaNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtApellido"
+            android:hint="dia"
+            android:inputType="number"
+            android:layout_toEndOf="@+id/textoFechaNacimiento"/>
+
+        <EditText
+            android:id="@+id/edtMesNacimiento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtApellido"
+            android:hint="mes"
+            android:inputType="number"
+            android:layout_toEndOf="@+id/edtDiaNacimiento"/>
+
     <EditText
-        android:id="@+id/edtFechaNacimiento"
-        android:layout_width="match_parent"
+        android:id="@+id/edtAnioNacimiento"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/edtApellido"
+        android:hint="@string/text_anio"
+        android:layout_toEndOf="@+id/edtMesNacimiento"
+        android:inputType="number"
         />
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textoAnimal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_pequeño"
         android:text="@string/textoAnimalFavorito"
         android:layout_margin="@dimen/margin"
+        android:layout_below="@+id/edtAnioNacimiento"
         />
 
     <EditText
         android:id="@+id/edtAnimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/edtAnioNacimiento"
+        android:layout_toEndOf="@+id/textoAnimal"
         />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textoUrl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/texto_pequeño"
         android:text="@string/textoUrl"
         android:layout_margin="@dimen/margin"
+        android:layout_below="@+id/edtAnimal"
         />
 
     <EditText
         android:id="@+id/edtUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textoUrl"
+        android:layout_below="@+id/edtAnimal"
         />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -84,7 +124,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/textoBtnEnviar"
+        android:layout_below="@+id/edtUrl"
         />
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
 </LinearLayout>
