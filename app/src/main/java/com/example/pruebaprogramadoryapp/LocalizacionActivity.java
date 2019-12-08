@@ -91,11 +91,9 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
         switch (menuItem.getItemId()) {
             case R.id.nav_camera:
 
-                Toast.makeText(this, "Que onda perro ya te salio  hijo 7u7", Toast.LENGTH_SHORT).show();
+                Consulta consulta = new Consulta(this);
+                consulta.execute();
 
-                Consulta consulta = new Consulta();
-
-                consulta.realizarConsulta(this);
 
                 break;
         }

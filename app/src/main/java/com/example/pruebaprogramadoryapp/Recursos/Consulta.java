@@ -11,16 +11,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 public class Consulta extends AsyncTask<String, Void, String>{
 
     private static String URL_PETICION = "http://beta.yappapp.mx/test/json/apps";
     private Context contex;
 
-    public void realizarConsulta(final Context context){
+    public Consulta(Context contex) {
+        this.contex = contex;
+    }
 
-        contex = context;
+    @Override
+    protected String doInBackground(String... strings) {
 
         RequestQueue queue = Volley.newRequestQueue(contex);
+
         StringRequest request = new StringRequest(0, URL_PETICION, new Response.Listener<String>() {
             public void onResponse(String response) {
                 Toast.makeText(contex, "Respuesta "+response, Toast.LENGTH_LONG).show();
@@ -33,19 +38,8 @@ public class Consulta extends AsyncTask<String, Void, String>{
             }
         });
         request.setRetryPolicy(new DefaultRetryPolicy(30000, 1, 1.0F));
+
         queue.add(request);
-
-    }
-
-
-    @Override
-    protected String doInBackground(String... strings) {
-
-
-
-
-
-
 
         return null;
     }
