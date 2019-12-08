@@ -46,12 +46,7 @@ public class AlertDialogImagen {
         //Cargamos la imagen
         new CargarImagenURL(imgFotoUsuario,context).execute(urlImagen);
 
-        Thread.currentThread();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         //Creamos un Builder
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -61,6 +56,12 @@ public class AlertDialogImagen {
         //Guaradamos el Builder en el alertdialog
         alertDialogError = builder.create();
 
+        Thread.currentThread();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         handler = new Handler();
         handler.postDelayed(new Runnable()
