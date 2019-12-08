@@ -28,8 +28,13 @@ public class Consulta extends AsyncTask<String, Void, String>{
 
         StringRequest request = new StringRequest(0, URL_PETICION, new Response.Listener<String>() {
             public void onResponse(String response) {
-                Toast.makeText(contex, "Respuesta "+response, Toast.LENGTH_LONG).show();
-                Log.i("peticion",response);
+                if(response != null){
+
+                    Toast.makeText(contex, "Respuesta "+response, Toast.LENGTH_LONG).show();
+                    Log.i("peticion",response);
+
+                }
+
             }
         }, new Response.ErrorListener() {
             public void onErrorResponse(VolleyError error) {
