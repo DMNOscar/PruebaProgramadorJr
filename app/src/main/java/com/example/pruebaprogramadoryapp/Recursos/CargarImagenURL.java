@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import java.io.InputStream;
@@ -26,7 +27,7 @@ public class CargarImagenURL extends AsyncTask<String, Void, Bitmap> {
             InputStream in = new java.net.URL(url).openStream();
             bitmap = BitmapFactory.decodeStream(in);
         } catch (Exception e) {
-            Log.e("Error", e.toString());
+            Toast.makeText(context, "Error: "+e.toString(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
         return bitmap;
