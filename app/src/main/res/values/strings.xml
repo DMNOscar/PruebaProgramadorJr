@@ -13,7 +13,7 @@
     <string name="textoApellidos">Apellidos:</string>
     <string name="textoFechaNacimiento">Fecha Nacimiento:</string>
     <string name="textoAnimalFavorito">¿Cuál es tu animal favorito?</string>
-    <string name="textoUrl">Ingresa una Url de tu animal favorito:</string>
+    <string name="textoUrl">Copea la url de una foto de tu animal favorito:</string>
 
     <string name="textoCardAnimalFavirito">Animal favorito:</string>
     <string name="textoCardEdad">Edad:</string>

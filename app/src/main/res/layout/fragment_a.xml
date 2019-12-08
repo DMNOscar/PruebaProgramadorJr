@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_margin="@dimen/margin"
         >
     <TextView
         android:id="@+id/textoNombre"
@@ -27,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/textoNombre"
+        android:maxLines="1"
         />
 
     <TextView
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtNombre"
         android:layout_toEndOf="@+id/textoApellido"
+        android:maxLines="1"
         />
     <TextView
         android:id="@+id/textoFechaNacimiento"
@@ -63,7 +66,9 @@
             android:layout_below="@+id/edtApellido"
             android:hint="dia"
             android:inputType="number"
-            android:layout_toEndOf="@+id/textoFechaNacimiento"/>
+            android:layout_toEndOf="@+id/textoFechaNacimiento"
+            android:maxLines="1"
+            />
 
         <EditText
             android:id="@+id/edtMesNacimiento"
@@ -72,7 +77,8 @@
             android:layout_below="@+id/edtApellido"
             android:hint="mes"
             android:inputType="number"
-            android:layout_toEndOf="@+id/edtDiaNacimiento"/>
+            android:layout_toEndOf="@+id/edtDiaNacimiento"
+            android:maxLines="1"/>
 
     <EditText
         android:id="@+id/edtAnioNacimiento"
@@ -82,6 +88,7 @@
         android:hint="@string/text_anio"
         android:layout_toEndOf="@+id/edtMesNacimiento"
         android:inputType="number"
+        android:maxLines="1"
         />
     <TextView
         android:id="@+id/textoAnimal"
@@ -99,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtAnioNacimiento"
         android:layout_toEndOf="@+id/textoAnimal"
+        android:maxLines="1"
         />
 
     <TextView
@@ -115,16 +123,18 @@
         android:id="@+id/edtUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/textoUrl"
-        android:layout_below="@+id/edtAnimal"
+        android:layout_below="@+id/textoUrl"
         />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnEnviar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textoBtnEnviar"
         android:layout_below="@+id/edtUrl"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorBlanco"
+        android:background="@color/colorPrimary"
         />
     </RelativeLayout>
 </ScrollView>

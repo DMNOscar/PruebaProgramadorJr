@@ -1,5 +1,6 @@
 package com.example.pruebaprogramadoryapp.Recursos;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,13 +17,15 @@ public class Consulta extends AsyncTask<String, Void, String>{
 
     private static String URL_PETICION = "http://beta.yappapp.mx/test/json/apps";
     private Context contex;
-
+    ProgressDialog progressDialog;
     public Consulta(Context contex) {
         this.contex = contex;
     }
 
     @Override
     protected String doInBackground(String... strings) {
+
+
 
         RequestQueue queue = Volley.newRequestQueue(contex);
 
@@ -32,7 +35,7 @@ public class Consulta extends AsyncTask<String, Void, String>{
 
                     Toast.makeText(contex, "Respuesta "+response, Toast.LENGTH_LONG).show();
                     Log.i("peticion",response);
-
+                    progressDialog.dismiss();
                 }
 
             }
@@ -40,6 +43,7 @@ public class Consulta extends AsyncTask<String, Void, String>{
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(contex, "Error "+error.toString(), Toast.LENGTH_LONG).show();
                 Log.i("peticion",error.toString());
+                progressDialog.dismiss();
             }
         });
         request.setRetryPolicy(new DefaultRetryPolicy(30000, 1, 1.0F));
@@ -47,6 +51,19 @@ public class Consulta extends AsyncTask<String, Void, String>{
         queue.add(request);
 
         return null;
+    }
+
+    protected void onPostExecute(String result) {
+
+        progressDialog = new ProgressDialog(contex);
+        progressDialog.setTitle("Esto tarda un poco");
+        progressDialog.setMessage("Esperando respuesta...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+
+        progressDialog.show();
+
+
     }
 
 
