@@ -23,7 +23,6 @@ public class AlertDialogImagen {
     private TextView txtTitulo;
     private ImageView imgFotoUsuario;
     private Handler handler;
-    URL url ;
 
     public AlertDialog crearDialogError(Context context, String urlImagen, String animalFavorito) {
 
@@ -39,11 +38,11 @@ public class AlertDialogImagen {
         imgFotoUsuario = view.findViewById(R.id.imgAlertDialog);
 
         txtTitulo.setText(animalFavorito);
-
-
+        //
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        //Cargamos la imagen
         new CargarImagenURL(imgFotoUsuario).execute(urlImagen);
 
         //Creamos un Builder
@@ -69,33 +68,6 @@ public class AlertDialogImagen {
 
         return alertDialogError;
     }
-
-
-    private class CargarImagenURL extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public CargarImagenURL(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String url = urls[0];
-            Bitmap bitmap = null;
-            try {
-                InputStream in = new java.net.URL(url).openStream();
-                bitmap = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.toString());
-                e.printStackTrace();
-            }
-            return bitmap;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
-
 
 
 }

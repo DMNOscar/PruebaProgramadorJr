@@ -2,6 +2,7 @@ package com.example.pruebaprogramadoryapp.Fragment;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.pruebaprogramadoryapp.Interface.InterfaceRecycler;
@@ -21,6 +23,7 @@ import com.example.pruebaprogramadoryapp.R;
 import java.util.Calendar;
 
 import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
+import static androidx.core.content.ContextCompat.checkSelfPermission;
 
 public class FragmentoA extends Fragment implements View.OnClickListener {
 
@@ -31,7 +34,9 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
     private Calendar calendario = Calendar.getInstance();
     private int horaActual, horasRestantes, HORAS_DIA=24, anioActual,edadUsuario;
 
-    private int MY_LOCATION_REQUEST_CODE = OK;
+    private static final int REQUEST_CODE = 1;
+    private static final String PERMISOS[] = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+
 
 
     @Nullable
@@ -69,22 +74,11 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         horasRestantes =  HORAS_DIA - horaActual;
 
         btnEnviar.setOnClickListener(this);
+        
+        VerificarPermisos();
 
     }
 
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == MY_LOCATION_REQUEST_CODE) {
-            if (permissions.length == 1 &&
-                    permissions[0] == Manifest.permission.ACCESS_FINE_LOCATION &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-            } else {
-                // Permission was denied. Display an error message.
-            }
-        }
-    }
 
     @Override
     public void onClick(View view) {
@@ -124,11 +118,26 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         }
     }
 
+
+    private void VerificarPermisos(){
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(getContext(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(getContext(),Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(getActivity(), PERMISOS, REQUEST_CODE);
+                return;
+            }
+        }
+
+    }
+
     public static void ActualizarRecyclerView(InterfaceRecycler interfaceRecycler){
 
         varInterfaceRecycler = interfaceRecycler;
 
     }
+
+
+
 
 
 }

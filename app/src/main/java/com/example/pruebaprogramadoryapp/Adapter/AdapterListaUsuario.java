@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
+import com.example.pruebaprogramadoryapp.Recursos.CargarImagenURL;
 
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class AdapterListaUsuario extends RecyclerView.Adapter<AdapterListaUsuari
         holder.txtvApellidos.setText(listaUsuario.get(position).getApellidos());
         holder.txtvEdad.setText(listaUsuario.get(position).getFechaNacimiento());
         holder.txtvAnimalFavorito.setText(listaUsuario.get(position).getAnimalFavorito());
-       // Glide.with(context).load(listaUsuario.get(position).getUrlImagen()).into(holder.imgAnimalFavorito);
+        new CargarImagenURL(holder.imgAnimalFavorito).execute(listaUsuario.get(position).getUrlImagen());
 
     }
 
