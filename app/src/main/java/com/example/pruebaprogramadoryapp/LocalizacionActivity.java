@@ -49,7 +49,6 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-       // toolbar.setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -91,8 +90,8 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
         switch (menuItem.getItemId()) {
             case R.id.nav_camera:
 
-                Consulta consulta = new Consulta(this);
-                consulta.execute();
+
+                new Consulta(this).execute();
 
 
                 break;
