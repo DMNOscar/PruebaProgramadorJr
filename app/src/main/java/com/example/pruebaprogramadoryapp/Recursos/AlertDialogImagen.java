@@ -56,6 +56,7 @@ public class AlertDialogImagen {
         //Guaradamos el Builder en el alertdialog
         alertDialogError = builder.create();
 
+        //Tiempo para necesario cargarla imagen
         Thread.currentThread();
         try {
             Thread.sleep(3000);

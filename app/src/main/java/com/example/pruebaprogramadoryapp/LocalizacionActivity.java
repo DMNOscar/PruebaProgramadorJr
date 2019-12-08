@@ -6,16 +6,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
+
 
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -28,8 +26,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.jar.Manifest;
 
 public class LocalizacionActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -89,14 +85,11 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
 
         switch (menuItem.getItemId()) {
             case R.id.nav_camera:
-
-
+                //Ejecutamos la tarea de la peticion la
                 new Consulta(this).execute();
-
 
                 break;
         }
-
 
         drawerLayout.closeDrawer(GravityCompat.START);
 

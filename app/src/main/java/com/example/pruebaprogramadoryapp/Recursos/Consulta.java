@@ -50,5 +50,4 @@ public class Consulta extends AsyncTask<String, Void, String>{
     }
 
 
-
 }

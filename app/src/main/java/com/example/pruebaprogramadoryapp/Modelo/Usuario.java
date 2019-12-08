@@ -1,8 +1,5 @@
 package com.example.pruebaprogramadoryapp.Modelo;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class Usuario  {
 
     /*
@@ -11,7 +8,7 @@ public class Usuario  {
 
     private  String nombre;
     private  String apellidos;
-    private  String fechaNacimiento;
+    private  String anioNacimiento;
     private  String animalFavorito;
     private  String urlImagen;
 
@@ -19,7 +16,7 @@ public class Usuario  {
     public Usuario(String nombre, String apellidos, String fechaNacimiento, String animalFavorito, String urlImagen) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
+        this.anioNacimiento = fechaNacimiento;
         this.animalFavorito = animalFavorito;
         this.urlImagen = urlImagen;
     }
@@ -41,12 +38,12 @@ public class Usuario  {
         this.apellidos = apellidos;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getAnioNacimiento() {
+        return anioNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setAnioNacimiento(String anioNacimiento) {
+        this.anioNacimiento = anioNacimiento;
     }
 
     public String getAnimalFavorito() {

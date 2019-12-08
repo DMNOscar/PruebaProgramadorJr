@@ -1,19 +1,10 @@
 package com.example.pruebaprogramadoryapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -31,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fabActivityMapa = findViewById(R.id.fabMapa);
         fabActivityMapa.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -40,16 +30,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case  R.id.fabMapa:
-
                 locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-
+                //Verificamos el estado del GPS
                 if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 
                     Toast.makeText(this, "Buscando Ubicacion", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(this, LocalizacionActivity.class);
                     startActivity(intent);
-
                 } else {
                     Toast.makeText(this, "El GPS esta Desactivado", Toast.LENGTH_SHORT).show();
                 }
@@ -58,8 +46,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
-
-
 
 }
