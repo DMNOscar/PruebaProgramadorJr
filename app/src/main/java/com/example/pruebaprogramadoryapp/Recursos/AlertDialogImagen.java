@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,7 @@ public class AlertDialogImagen {
         StrictMode.setThreadPolicy(policy);
 
         try {
+            Log.i("Img", urlImagen);
             url = new URL(urlImagen);
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             imgFotoUsuario.setImageBitmap(bmp);
@@ -71,8 +73,17 @@ public class AlertDialogImagen {
 
 
 
+        handler = new Handler();
+        handler.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                alertDialogError.dismiss();
+            }
+        },5000);
 
-        Toast.makeText(context, "Creamdo Alert", Toast.LENGTH_SHORT).show();
+
 
         return alertDialogError;
     }

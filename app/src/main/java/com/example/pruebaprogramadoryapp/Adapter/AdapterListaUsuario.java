@@ -44,7 +44,7 @@ public class AdapterListaUsuario extends RecyclerView.Adapter<AdapterListaUsuari
         holder.txtvApellidos.setText(listaUsuario.get(position).getApellidos());
         holder.txtvEdad.setText(listaUsuario.get(position).getFechaNacimiento());
         holder.txtvAnimalFavorito.setText(listaUsuario.get(position).getAnimalFavorito());
-        Glide.with(context).load(listaUsuario.get(position).getUrlImagen()).into(holder.imgAnimalFavorito);
+       // Glide.with(context).load(listaUsuario.get(position).getUrlImagen()).into(holder.imgAnimalFavorito);
 
     }
 

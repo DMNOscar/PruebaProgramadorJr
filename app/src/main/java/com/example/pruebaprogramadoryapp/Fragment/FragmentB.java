@@ -62,7 +62,7 @@ public class FragmentB extends Fragment implements InterfaceRecycler {
             adapterListaUsuario = new AdapterListaUsuario(lista,getContext());
             rcvListaUsuario.setAdapter(adapterListaUsuario);
 
-            alertDialog.crearDialogError(getContext(),usuario.getUrlImagen(), usuario.getAnimalFavorito());
+            alertDialog.crearDialogError(getContext(),usuario.getUrlImagen(), usuario.getAnimalFavorito()).show();
 
     }
 
