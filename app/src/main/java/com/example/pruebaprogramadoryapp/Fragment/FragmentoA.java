@@ -21,8 +21,6 @@ import com.example.pruebaprogramadoryapp.Modelo.Usuario;
 import com.example.pruebaprogramadoryapp.R;
 
 import java.util.Calendar;
-
-import static android.icu.text.DateTimePatternGenerator.PatternInfo.OK;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
 
 public class FragmentoA extends Fragment implements View.OnClickListener {
@@ -106,12 +104,9 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
                 }else {
 
                    Toast.makeText(getContext(), "Aun hay campos vacios", Toast.LENGTH_SHORT).show();
-
                }
 
-
                 break;
-
         }
     }
 
@@ -132,9 +127,5 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         varInterfaceRecycler = interfaceRecycler;
 
     }
-
-
-
-
 
 }

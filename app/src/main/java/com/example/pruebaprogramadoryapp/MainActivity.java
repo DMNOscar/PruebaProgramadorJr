@@ -23,30 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private FloatingActionButton fabActivityMapa;
     LocationManager locationManager;
-    Location localizacion;
-    private double latitud=0, longitud=0;
-    private static final int REQUEST_CODE = 1;
-    private static final String PERMISOS[] = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         fabActivityMapa = findViewById(R.id.fabMapa);
-
-
         fabActivityMapa.setOnClickListener(this);
-
-
-/*        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, PERMISOS, REQUEST_CODE);
-                return;
-            }
-        }*/
-
 
 
     }
@@ -58,9 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case  R.id.fabMapa:
 
-                Toast.makeText(this, "Buscando Ubicacion", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this, LocalizacionActivity.class);
-                startActivity(intent);
+                locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+
+                if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+
+                    Toast.makeText(this, "Buscando Ubicacion", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, LocalizacionActivity.class);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(this, "El GPS esta Desactivado", Toast.LENGTH_SHORT).show();
+                }
 
                 break;
 

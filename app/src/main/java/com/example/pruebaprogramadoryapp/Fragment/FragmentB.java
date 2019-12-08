@@ -1,11 +1,9 @@
 package com.example.pruebaprogramadoryapp.Fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -46,17 +44,12 @@ public class FragmentB extends Fragment implements InterfaceRecycler {
 
     }
 
-
-
     private void llenadoAdapterLista(Usuario usuario ,int horasRestantes){
 
         lista.clear();
         for (int i = 0; i < horasRestantes; i++) {
-
                 lista.add( usuario);
-
             }
-
             rcvListaUsuario.setHasFixedSize(true);
             rcvListaUsuario.setLayoutManager(new LinearLayoutManager(getContext()));
             adapterListaUsuario = new AdapterListaUsuario(lista,getContext());
@@ -70,8 +63,6 @@ public class FragmentB extends Fragment implements InterfaceRecycler {
     public void ActualizarRecycler(Usuario usuario, int item) {
 
         llenadoAdapterLista(usuario, item);
-
-
 
     }
 }
