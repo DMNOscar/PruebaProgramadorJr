@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.pruebaprogramadoryapp.Recursos.Consulta;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -91,6 +92,10 @@ public class LocalizacionActivity extends FragmentActivity implements OnMapReady
             case R.id.nav_camera:
 
                 Toast.makeText(this, "Que onda perro ya te salio  hijo 7u7", Toast.LENGTH_SHORT).show();
+
+                Consulta consulta = new Consulta();
+
+                consulta.realizarConsulta(this);
 
                 break;
         }
