@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pruebaprogramadoryapp.R;
 
@@ -43,7 +44,14 @@ public class AlertDialogImagen {
         StrictMode.setThreadPolicy(policy);
 
         //Cargamos la imagen
-        new CargarImagenURL(imgFotoUsuario).execute(urlImagen);
+        new CargarImagenURL(imgFotoUsuario,context).execute(urlImagen);
+
+        Thread.currentThread();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         //Creamos un Builder
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

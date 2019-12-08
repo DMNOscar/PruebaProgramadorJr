@@ -45,7 +45,7 @@ public class AdapterListaUsuario extends RecyclerView.Adapter<AdapterListaUsuari
         holder.txtvApellidos.setText(listaUsuario.get(position).getApellidos());
         holder.txtvEdad.setText(listaUsuario.get(position).getFechaNacimiento());
         holder.txtvAnimalFavorito.setText(listaUsuario.get(position).getAnimalFavorito());
-        new CargarImagenURL(holder.imgAnimalFavorito).execute(listaUsuario.get(position).getUrlImagen());
+        new CargarImagenURL(holder.imgAnimalFavorito,context).execute(listaUsuario.get(position).getUrlImagen());
 
     }
 

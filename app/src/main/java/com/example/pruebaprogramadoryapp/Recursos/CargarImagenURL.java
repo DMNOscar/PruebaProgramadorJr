@@ -1,18 +1,22 @@
 package com.example.pruebaprogramadoryapp.Recursos;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
 
+
 import java.io.InputStream;
 
 public class CargarImagenURL extends AsyncTask<String, Void, Bitmap> {
-    ImageView bmImage;
+    private  ImageView bmImage;
+    private Context context;
 
-    public CargarImagenURL(ImageView bmImage) {
+    public CargarImagenURL(ImageView bmImage, Context context) {
         this.bmImage = bmImage;
+        this.context = context;
     }
 
     protected Bitmap doInBackground(String... urls) {

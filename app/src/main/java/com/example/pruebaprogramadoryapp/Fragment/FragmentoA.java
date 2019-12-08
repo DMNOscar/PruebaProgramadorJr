@@ -74,7 +74,7 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         horasRestantes =  HORAS_DIA - horaActual;
 
         btnEnviar.setOnClickListener(this);
-        
+
         VerificarPermisos();
 
     }
@@ -90,21 +90,18 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
                if(edtNombre.getText().length() > 0 && edtApellido.getText().length() > 0 &&
                    edtDiaNacimiento.getText().length() > 0 && edtMesNacimiento.getText().length() > 0
                    && edtAnioNacimiento.getText().length() > 0 && edtAnimalFavorito.getText().length() > 0 && edtUrl.getText().length() > 0){
-
+                   Toast.makeText(getContext(), "Cargando Imagen", Toast.LENGTH_SHORT).show();
                    // Calculamos la edad de usuario
                    if(edtAnioNacimiento.getText().length() == 4){
                        edadUsuario = anioActual - Integer.parseInt(edtAnioNacimiento.getText().toString());
 
                        usuario = new Usuario(edtNombre.getText().toString(),edtApellido.getText().toString(),String.valueOf(edadUsuario),edtAnimalFavorito.getText().toString(),edtUrl.getText().toString());
 
-
                        varInterfaceRecycler.ActualizarRecycler(usuario,horasRestantes);
                    }else {
                        Toast.makeText(getContext(), "verifica que el año de nacimiento tenga el siguiete formato: aaaa", Toast.LENGTH_SHORT).show();
 
                    }
-
-
 
                 }else {
 
