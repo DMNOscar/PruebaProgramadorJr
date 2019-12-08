@@ -54,8 +54,13 @@ public class FragmentoA extends Fragment implements View.OnClickListener {
         edtUrl = view.findViewById(R.id.edtUrl);
         btnEnviar = view.findViewById(R.id.btnEnviar);
 
-
-
+        edtNombre.setText("Oscar");
+        edtApellido.setText("Martinez");
+        edtAnioNacimiento.setText("1993");
+        edtMesNacimiento.setText("06");
+        edtDiaNacimiento.setText("26");
+        edtAnimalFavorito.setText("Gato");
+        edtUrl.setText("https://www.purina.es/gato/purina-one/sites/g/files/mcldtz1856/files/2018-06/Mi_gato_no_come%20%282%29.jpg");
 
 
         horaActual =calendario.get(Calendar.HOUR_OF_DAY);

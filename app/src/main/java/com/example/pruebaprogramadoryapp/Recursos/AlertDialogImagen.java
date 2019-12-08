@@ -2,24 +2,20 @@ package com.example.pruebaprogramadoryapp.Recursos;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.pruebaprogramadoryapp.R;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class AlertDialogImagen {
@@ -48,20 +44,7 @@ public class AlertDialogImagen {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        try {
-            Log.i("Img", urlImagen);
-            url = new URL(urlImagen);
-            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-            imgFotoUsuario.setImageBitmap(bmp);
-
-        } catch (MalformedURLException e) {
-            Toast.makeText(context, "Error" + e.toString(), Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(context, "Error Conexion" + e.toString(), Toast.LENGTH_SHORT).show();
-        }
-
-
-      //  Glide.with(context).load(urlImagen).into(imgFotoUsuario);
+        new CargarImagenURL(imgFotoUsuario).execute(urlImagen);
 
         //Creamos un Builder
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -70,7 +53,6 @@ public class AlertDialogImagen {
 
         //Guaradamos el Builder en el alertdialog
         alertDialogError = builder.create();
-
 
 
         handler = new Handler();
@@ -87,6 +69,35 @@ public class AlertDialogImagen {
 
         return alertDialogError;
     }
+
+
+    private class CargarImagenURL extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public CargarImagenURL(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String url = urls[0];
+            Bitmap bitmap = null;
+            try {
+                InputStream in = new java.net.URL(url).openStream();
+                bitmap = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.toString());
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
+
+
 }
 
 
