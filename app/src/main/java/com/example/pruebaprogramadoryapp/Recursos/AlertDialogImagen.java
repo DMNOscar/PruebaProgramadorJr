@@ -53,6 +53,8 @@ public class AlertDialogImagen {
         //Enviamos la vista al Builder
         builder.setView(view);
 
+        builder.setCancelable(false);
+
         //Guaradamos el Builder en el alertdialog
         alertDialogError = builder.create();
 

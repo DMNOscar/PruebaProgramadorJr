@@ -20,6 +20,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding"
         >
 
         <TextView
@@ -31,6 +32,7 @@
             android:layout_margin="@dimen/margin"
             android:textStyle="bold"
             android:textColor="@color/colorTexto"
+            android:layout_toEndOf="@+id/imgAnimalFavorito"
             />
 
         <TextView
@@ -54,6 +56,7 @@
             android:layout_below="@+id/textoNombre"
             android:textStyle="bold"
             android:textColor="@color/colorTexto"
+            android:layout_toEndOf="@+id/imgAnimalFavorito"
             />
 
         <TextView
@@ -69,7 +72,7 @@
 
         <TextView
             android:id="@+id/textoEdad"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/texto_pequeño"
             android:text="@string/textoCardEdad"
@@ -77,6 +80,7 @@
             android:layout_below="@+id/textoApellidos"
             android:textStyle="bold"
             android:textColor="@color/colorTexto"
+            android:layout_toEndOf="@+id/imgAnimalFavorito"
             />
         <TextView
             android:id="@+id/txtvEdad"
@@ -87,6 +91,7 @@
             android:layout_below="@+id/txtvApellidos"
             android:text="@string/textoNombre"
             android:layout_margin="@dimen/margin"
+
             />
 
         <TextView
@@ -99,6 +104,7 @@
             android:layout_below="@+id/textoEdad"
             android:textStyle="bold"
             android:textColor="@color/colorTexto"
+            android:layout_toEndOf="@+id/imgAnimalFavorito"
             />
 
         <TextView
@@ -115,8 +121,8 @@
         <ImageView
             android:id="@+id/imgAnimalFavorito"
             android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
             />
 
 
