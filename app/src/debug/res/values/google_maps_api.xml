@@ -1,3 +1,11 @@
 <resources>
+    <!-- Key Restringina
+
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyD2MgABrPObV6bcrdukpRZZQUfgk6Pl5Og </string>
+
+    -->
+
+    <!-- Key Sin restringir-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDHDuIc6PE1hHBjylbuZkwiO713UQDcuDU </string>
+
 </resources>
